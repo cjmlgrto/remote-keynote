@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from models import *
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ def display():
 	slide = Counter.select()[0]
 	return render_template('display.html', slide=slide.counter)
 
-@app.route('/start')
+@app.route('/reset')
 def init():
 	slide = Counter.create(counter=1)
 	return 'Created!'
@@ -26,14 +26,14 @@ def next():
 	slide = Counter.select()[0]
 	slide.counter += 1
 	slide.save()
-	return render_template('display.html', slide=slide.counter)
+	return redirect('/')
 
 @app.route('/prev')
 def prev():
 	slide = Counter.select()[0]
 	slide.counter -= 1
 	slide.save()
-	return render_template('display.html', slide=slide.counter)
+	return redirect('/')
 
 if __name__ == '__main__':
 	app.run(debug=True)

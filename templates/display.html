@@ -6,4 +6,17 @@
 	</head>
 	<body>
 		<h1>{{ slide }}</h1>
-		<p><a href="/prev">Prev</a> | <a href="/next">Next</a></p>
+		<p>Press J or K to navigate</p>
+
+		<script type="text/javascript">
+			document.onkeypress = function (e) {
+				e = e || window.event;
+				var keyCode = e.keyCode;
+				if (keyCode == 106) {
+					window.location.href = window.location.href + 'prev'
+				}
+				if (keyCode == 107) {
+					window.location.href = window.location.href + 'next'
+				}
+			}
+		</script>
