@@ -9,4 +9,10 @@ Hello [there](http://apple.com)
 echo "hi"
 ```
 
+-
+* this is a list
+* nice
+- 
+
+
 ---

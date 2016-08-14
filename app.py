@@ -3,7 +3,7 @@ from models import *
 from deck import *
 
 app = Flask(__name__)
-keynote = parse('keynote.md')
+keynote = deck('keynote.md')
 n = len(keynote)
 
 @app.before_request
@@ -18,7 +18,7 @@ def teardown_request(exception):
 def display():
 	slide = Counter.select()[0]
 	index = slide.counter % n
-	return render_template('display.html', content=keynote[index])
+	return render_template('keynote.html', content=keynote[index])
 
 @app.route('/start')
 def reset():
