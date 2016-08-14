@@ -20,12 +20,16 @@ def display():
 	index = slide.counter % n
 	return render_template('display.html', content=keynote[index])
 
-@app.route('/reset')
-def init():
-	# slide = Counter.create(counter=1)
+@app.route('/start')
+def reset():
 	slide = Counter.select()[0]
 	slide.counter = 0
 	slide.save()
+	return redirect('/')
+
+@app.route('/init')
+def init():
+	slide = Counter.create(counter=0)
 	return redirect('/')
 
 @app.route('/next')
@@ -41,7 +45,6 @@ def prev():
 	slide.counter -= 1
 	slide.save()
 	return redirect('/')
-
 
 if __name__ == '__main__':
 	app.run(debug=True)
