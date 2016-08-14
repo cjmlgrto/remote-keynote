@@ -9,10 +9,14 @@ def deck(filename):
 		list = False
 		for line in content:
 			text = line.rstrip()
-			if text == '```':
+			if text[:3] == '```':
 				code = not code
 				if code:
-					slide.append('<pre><code>')
+					if text[3:] == '':
+						slide.append('<pre><code>')
+					else:
+						lang = text[3:]
+						slide.append('<pre><code class="language-' + lang + '">')
 				else:
 					slide.append('</pre></code>')
 			if text == '-':
@@ -22,10 +26,10 @@ def deck(filename):
 				else:
 					slide.append('</ul>')
 			if not code and not list:
-				if not (text == '```' or text == '---' or text == '' or text == '-'):
+				if not (text[:3] == '```' or text == '---' or text == '' or text == '-'):
 					slide.append(str(markdown2.markdown(text)))
 			else:
-				if text != '```' and text != '-':
+				if text[:3] != '```' and text != '-':
 					if text[:2] == '* ':
 						slide.append('<li>' + text[2:] + '</li>')
 					else:
@@ -34,3 +38,9 @@ def deck(filename):
 				keynote.append(slide)
 				slide = []
 	return keynote
+
+# def display(slides, page):
+# 	for line in slides[page]:
+# 		print line
+
+# print display(deck('keynote.md'), 0)

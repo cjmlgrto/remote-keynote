@@ -3,14 +3,26 @@
 	<head>
 		<title>Keynote</title>
 		<meta charset="utf-8"/>
-		<link rel="stylsheet" href="{{ url_for('static', filename='base.css') }}"/>
-		<link rel="stylsheet" href="{{ url_for('static', filename='style.css') }}"/>
-		<link rel="stylsheet" href="{{ url_for('static', filename='prism.css') }}"/>
+		<meta http-equiv="refresh" content="15">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/prism.css') }}">
 	</head>
 	<body>
-		<h1>Title</h1>
-		<p>List item</p>
-
+{% for line in content %}{% if line[:4] == '    ' %}{{ line[4:] }}
+{% else %}{{ line|safe }}{% endif %}{% endfor %}
 	</body>
-	<script type="text/javascript" src="{{ url_for('static', filename='prism.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/prism.js') }}"></script>
+	<script type="text/javascript">
+		document.onkeypress = function (e) {
+			e = e || window.event;
+			var keyCode = e.keyCode;
+			if (keyCode == 106) {
+				window.location.href = window.location.href + 'prev'
+			}
+			if (keyCode == 107) {
+				window.location.href = window.location.href + 'next'
+			}
+		}
+	</script>
 </html>

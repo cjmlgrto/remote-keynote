@@ -1,18 +1,50 @@
-# Header
-## Subheader
-Text goes here
-![](http://apple.com)
+# Hello World
 
-Hello [there](http://apple.com)
+This is a paragraph
 
-```
-echo "hi"
-```
+Open the [playground](http://mlgrto.com/misc/js)
+
+---
+
+# Another Slide
+
+## Subheading
 
 -
-* this is a list
-* nice
-- 
+* Item 1
+* Item 2
+* Item 3
+-
 
+---
+
+# Ending Slide
+
+```css
+
+    body {
+    	background: black;
+    }
+
+```
+
+---
+
+# Formalities
+
+```html
+
+    <!doctype html>
+    <html>
+        <head>
+            <title>Website title</title>
+            <meta charset="utf-8">
+        </head>
+        <body>
+            Text goes here
+        </body>
+    </html>
+
+```
 
 ---

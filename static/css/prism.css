@@ -10,7 +10,7 @@ pre[class*="language-"] {
 	color: black;
 	background: none;
 	text-shadow: 0 1px white;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: "SF Mono", "Menlo", "Courier", monospace;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -26,6 +26,8 @@ pre[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+
+	border-radius: 4px;
 }
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,

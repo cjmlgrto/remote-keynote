@@ -1,0 +1,47 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	margin-bottom: 4vw;
+}
+
+body {
+	width: 80%;
+	height: 80vh;
+	margin: 10vh auto;
+	font-size: 4vw;
+}
+
+h1 {
+	font-size: 10vw;
+	margin-bottom: 4vw;
+	line-height: 1;
+}
+
+h2 {
+	font-size: 6vw;
+	margin-bottom: 4vw;
+}
+
+p {
+	margin-bottom: 4vw;
+}
+
+pre {
+	white-space: nowrap;
+}
+
+code {
+	white-space: pre
+}
+
+ul {
+	margin-bottom: 4vw;
+	margin-left: 2vw;
+	padding-left: 2vw;
+	line-height: 1.5;
+}
