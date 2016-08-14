@@ -1,7 +1,10 @@
 from flask import Flask, render_template, redirect
 from models import *
+from deck import *
 
 app = Flask(__name__)
+keynote = parse('keynote.md')
+n = len(keynote)
 
 @app.before_request
 def before_request():
@@ -11,10 +14,19 @@ def before_request():
 def teardown_request(exception):
 	db.close()
 
+@app.route('/')
+def display():
+	slide = Counter.select()[0]
+	index = slide.counter % n
+	return render_template('display.html', content=keynote[index])
+
 @app.route('/reset')
 def init():
-	slide = Counter.create(counter=1)
-	return 'Created!'
+	# slide = Counter.create(counter=1)
+	slide = Counter.select()[0]
+	slide.counter = 0
+	slide.save()
+	return redirect('/')
 
 @app.route('/next')
 def next():

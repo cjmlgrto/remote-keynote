@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Test</title>
+		<meta charset="utf-8">
+		<meta http-equiv="refresh" content="10">
+	</head>
+	<body>
+		{% for line in content %}
+			{{ line|safe }}
+		{% endfor %}
+	</body>
+	<script type="text/javascript">
+		document.onkeypress = function (e) {
+			e = e || window.event;
+			var keyCode = e.keyCode;
+			if (keyCode == 106) {
+				window.location.href = window.location.href + 'prev'
+			}
+			if (keyCode == 107) {
+				window.location.href = window.location.href + 'next'
+			}
+		}
+	</script>
+</html>
