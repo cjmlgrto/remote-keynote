@@ -3,7 +3,7 @@ from models import *
 from deck import *
 
 app = Flask(__name__)
-keynote = deck('keynote.md')
+keynote = deck('build-your-own-website.md')
 n = len(keynote)
 
 @app.before_request

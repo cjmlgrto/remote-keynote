@@ -31,7 +31,7 @@ def deck(filename):
 			else:
 				if text[:3] != '```' and text != '-':
 					if text[:2] == '* ':
-						slide.append('<li>' + text[2:] + '</li>')
+						slide.append('<li>' + str(markdown2.markdown(text[2:])) + '</li>')
 					else:
 						slide.append(text)
 			if text == '---':
