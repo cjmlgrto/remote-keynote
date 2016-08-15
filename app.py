@@ -3,7 +3,7 @@ from models import *
 from deck import *
 
 app = Flask(__name__)
-keynote = deck('programming-in-python.md')
+keynote = deck('build-your-own-website.md')
 n = len(keynote)
 
 @app.before_request
@@ -18,8 +18,17 @@ def teardown_request(exception):
 def display():
 	slide = Counter.select()[0]
 	index = slide.counter % n
-	# return render_template('keynote.html', content=keynote[index])
-	return redirect('http://indiecodeworkshop.com')
+	return render_template('keynote.html', content=keynote[index])
+	# return redirect('http://indiecodeworkshop.com')
+
+@app.route('/presentation/<name>')
+def full(name=None):
+	if name is not None:
+		keynote = deck(name + '.md')
+		return render_template('full.html', keynote=keynote)
+	else:
+		return redirect('http://indiecodeworkshop.com/')
+
 
 @app.route('/start')
 def reset():

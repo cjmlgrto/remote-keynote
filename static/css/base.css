@@ -39,6 +39,12 @@ img {
 	max-width: 100%;
 }
 
+.slide {
+	margin-bottom: 20vh;
+	padding-bottom: 20vh;
+	border-bottom: 10px solid #0A263C;
+}
+
 @media (min-width: 1000px) {
 	html {
 		font-size: 3vw;
