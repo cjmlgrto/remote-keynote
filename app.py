@@ -18,7 +18,8 @@ def teardown_request(exception):
 def display():
 	slide = Counter.select()[0]
 	index = slide.counter % n
-	return render_template('keynote.html', content=keynote[index])
+	# return render_template('keynote.html', content=keynote[index])
+	return redirect('http://indiecodeworkshop.com')
 
 @app.route('/start')
 def reset():
